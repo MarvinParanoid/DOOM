@@ -8,5 +8,11 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin)
 add_compile_options(-Wall -m32 -DNORMALUNIX -DLINUX -Wno-error=implicit-int)
 add_link_options(-lX11 -lXext -lm -m32)
 
+set(ASAN false)
+if (${ASAN})
+    add_compile_options(-fsanitize=address)
+    add_link_options(-fsanitize=address)
+endif ()
+
 file(GLOB SOURCES ./*.c)
 add_executable(doom ${SOURCES})
