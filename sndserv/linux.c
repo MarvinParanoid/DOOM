@@ -53,8 +53,7 @@ myioctl
   int*	arg )
 {   
     int		rc;
-    extern int	errno;
-    
+
     rc = ioctl(fd, command, arg);  
     if (rc < 0)
     {
