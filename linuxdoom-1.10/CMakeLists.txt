@@ -8,7 +8,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin)
 add_compile_options(-Wall -m32 -DNORMALUNIX -DLINUX)
 add_link_options(-lX11 -lXext -lm -m32)
 
-set(ASAN false)
+set(ASAN true)
 if (${ASAN})
     add_compile_options(-fsanitize=address)
     add_link_options(-fsanitize=address)
