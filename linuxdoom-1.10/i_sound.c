@@ -62,7 +62,7 @@
 #ifdef SNDSERV
 // Separate sound server process.
 FILE *sndserver = 0;
-char *sndserver_filename = "./sndserver ";
+char *sndserver_filename = "sndserver";
 #elif SNDINTR
 
 // Update all 30 millisecs, approx. 30fps synchronized.
@@ -661,7 +661,7 @@ void I_InitSound() {
     if (getenv("DOOMWADDIR"))
         sprintf(buffer, "%s/%s", getenv("DOOMWADDIR"), sndserver_filename);
     else
-        sprintf(buffer, "%s", sndserver_filename);
+        sprintf(buffer, "./%s", sndserver_filename);
 
     // start sound process
     if (!access(buffer, X_OK)) {
