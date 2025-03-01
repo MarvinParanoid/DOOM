@@ -11,7 +11,7 @@ add_link_options(-lm)
 if (NOT ${X86_64})
     add_compile_options(-m32)
     add_link_options(-m32)
-endif()
+endif ()
 
 file(GLOB SOURCES ./*.c)
 add_executable(sndserver ${SOURCES})

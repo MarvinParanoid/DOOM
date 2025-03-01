@@ -1,4 +1,4 @@
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- C++ -*-
 //-----------------------------------------------------------------------------
 //
 // $Id:$
@@ -22,22 +22,16 @@
 //-----------------------------------------------------------------------------
 
 
-
-
 #include "doomdef.h"
 
-#include "m_argv.h"
 #include "d_main.h"
+#include "m_argv.h"
 
-int
-main
-( int		argc,
-  char**	argv ) 
-{ 
-    myargc = argc; 
-    myargv = argv; 
- 
-    D_DoomMain (); 
+int main(int argc, char **argv) {
+    myargc = argc;
+    myargv = argv;
+
+    D_DoomMain();
 
     return 0;
-} 
+}

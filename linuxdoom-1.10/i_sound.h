@@ -1,4 +1,4 @@
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- C++ -*-
 //-----------------------------------------------------------------------------
 //
 // $Id:$
@@ -28,13 +28,12 @@
 // UNIX hack, to be removed.
 #ifdef SNDSERV
 #include <stdio.h>
-extern FILE* sndserver;
-extern char* sndserver_filename;
+extern FILE *sndserver;
+extern char *sndserver_filename;
 #endif
 
 #include "doomstat.h"
 #include "sounds.h"
-
 
 
 // Init at program start...
@@ -56,17 +55,11 @@ void I_ShutdownSound(void);
 void I_SetChannels();
 
 // Get raw data lump index for sound descriptor.
-int I_GetSfxLumpNum (sfxinfo_t* sfxinfo );
+int I_GetSfxLumpNum(sfxinfo_t *sfxinfo);
 
 
 // Starts a sound in a particular sound channel.
-int
-I_StartSound
-( int		id,
-  int		vol,
-  int		sep,
-  int		pitch,
-  int		priority );
+int I_StartSound(int id, int vol, int sep, int pitch, int priority);
 
 
 // Stops a sound channel.
@@ -79,12 +72,7 @@ int I_SoundIsPlaying(int handle);
 
 // Updates the volume, separation,
 //  and pitch of a sound channel.
-void
-I_UpdateSoundParams
-( int		handle,
-  int		vol,
-  int		sep,
-  int		pitch );
+void I_UpdateSoundParams(int handle, int vol, int sep, int pitch);
 
 
 //
@@ -103,15 +91,11 @@ int I_RegisterSong(void *data);
 //  plays a song, and when the song is done,
 //  starts playing it again in an endless loop.
 // Horrible thing to do, considering.
-void
-I_PlaySong
-( int		handle,
-  int		looping );
+void I_PlaySong(int handle, int looping);
 // Stops a song over 3 seconds.
 void I_StopSong(int handle);
 // See above (register), then think backwards
 void I_UnRegisterSong(int handle);
-
 
 
 #endif

@@ -1,4 +1,4 @@
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- C++ -*-
 //-----------------------------------------------------------------------------
 //
 // $Id:$
@@ -32,12 +32,10 @@
 #endif
 
 
+#define MAXWADFILES 20
+extern char *wadfiles[MAXWADFILES];
 
-#define MAXWADFILES             20
-extern char*		wadfiles[MAXWADFILES];
-
-void D_AddFile (char *file);
-
+void D_AddFile(char *file);
 
 
 //
@@ -46,19 +44,18 @@ void D_AddFile (char *file);
 // calls all startup code, parses command line options.
 // If not overrided by user input, calls N_AdvanceDemo.
 //
-void D_DoomMain (void);
+void D_DoomMain(void);
 
 // Called by IO functions when input is detected.
-void D_PostEvent (event_t* ev);
+void D_PostEvent(event_t *ev);
 
-	
 
 //
 // BASE LEVEL
 //
-void D_PageTicker (void);
-void D_PageDrawer (void);
-void D_AdvanceDemo (void);
-void D_StartTitle (void);
+void D_PageTicker(void);
+void D_PageDrawer(void);
+void D_AdvanceDemo(void);
+void D_StartTitle(void);
 
 #endif

@@ -11,7 +11,7 @@ add_link_options(-lX11 -lXext -lm)
 if (NOT ${X86_64})
     add_compile_options(-m32)
     add_link_options(-m32)
-endif()
+endif ()
 
 if (${ASAN})
     add_compile_options(-fsanitize=address)
