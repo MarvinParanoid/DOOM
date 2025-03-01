@@ -20,5 +20,5 @@ Xephyr :2 -ac -screen 640x400x8
 # run Doom
 export DOOMWADDIR=<path_to_wad_dir>
 DISPLAY=:2
-bin/doom -2
+bin/doom
 ```
