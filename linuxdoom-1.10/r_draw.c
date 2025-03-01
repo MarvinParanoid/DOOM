@@ -286,8 +286,6 @@ void R_DrawFuzzColumn (void)
 { 
     int			count; 
     byte*		dest; 
-    fixed_t		frac;
-    fixed_t		fracstep;	 
 
     // Adjust borders. Low... 
     if (!dc_yl) 
@@ -342,9 +340,6 @@ void R_DrawFuzzColumn (void)
     // Does not work with blocky mode.
     dest = ylookup[dc_yl] + columnofs[dc_x];
 
-    // Looks familiar.
-    fracstep = dc_iscale; 
-    frac = dc_texturemid + (dc_yl-centery)*fracstep; 
 
     // Looks like an attempt at dithering,
     //  using the colormap #6 (of 0-31, a bit
@@ -363,8 +358,7 @@ void R_DrawFuzzColumn (void)
 	
 	dest += SCREENWIDTH;
 
-	frac += fracstep; 
-    } while (count--); 
+    } while (count--);
 } 
  
   
