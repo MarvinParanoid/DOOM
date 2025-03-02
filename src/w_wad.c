@@ -22,7 +22,7 @@
 //-----------------------------------------------------------------------------
 
 
-#ifdef NORMALUNIX
+#ifdef LINUX
 #include <alloca.h>
 #include <ctype.h>
 #include <fcntl.h>

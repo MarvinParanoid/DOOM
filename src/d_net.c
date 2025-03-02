@@ -95,7 +95,7 @@ unsigned NetbufferChecksum(void) {
     c = 0x1234567;
 
     // FIXME -endianess?
-#ifdef NORMALUNIX
+#ifdef LINUX
     return 0; // byte order problems
 #endif
 

@@ -215,7 +215,7 @@ default_t defaults[] = {{"mouse_sensitivity", &mouseSensitivity, 5, false},
                         {"show_messages", &showMessages, 1, false},
 
 
-#ifdef NORMALUNIX
+#ifdef LINUX
                         {"key_right", &key_right, KEY_RIGHTARROW, false},
                         {"key_left", &key_left, KEY_LEFTARROW, false},
                         {"key_up", &key_up, KEY_UPARROW, false},
@@ -227,9 +227,7 @@ default_t defaults[] = {{"mouse_sensitivity", &mouseSensitivity, 5, false},
                         {"key_use", &key_use, ' ', false},
                         {"key_strafe", &key_strafe, KEY_RALT, false},
                         {"key_speed", &key_speed, KEY_RSHIFT, false},
-#endif
 
-#ifdef LINUX
                         {"mousedev", &mousedev, (intptr_t) "/dev/ttyS0", true},
                         {"mousetype", &mousetype, (intptr_t) "microsoft", true},
 #endif

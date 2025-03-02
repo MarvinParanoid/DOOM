@@ -29,7 +29,7 @@
 #define FGCOLOR 8
 
 
-#ifdef NORMALUNIX
+#ifdef LINUX
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
