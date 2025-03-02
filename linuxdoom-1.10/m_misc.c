@@ -227,13 +227,6 @@ default_t defaults[] = {{"mouse_sensitivity", &mouseSensitivity, 5, false},
                         {"key_use", &key_use, ' ', false},
                         {"key_strafe", &key_strafe, KEY_RALT, false},
                         {"key_speed", &key_speed, KEY_RSHIFT, false},
-
-// UNIX hack, to be removed.
-#ifdef SNDSERV
-                        {"sndserver", &sndserver_filename, (intptr_t) "sndserver", true},
-                        {"mb_used", &mb_used, 2, false},
-#endif
-
 #endif
 
 #ifdef LINUX
