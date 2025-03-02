@@ -3,4 +3,4 @@ project(all)
 
 set(ASAN false)
 
-add_subdirectory(linuxdoom-1.10)
+add_subdirectory(src)
