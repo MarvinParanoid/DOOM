@@ -339,10 +339,8 @@ void I_FinishUpdate(void) {
 void I_ReadScreen(byte *scr) { memcpy(scr, screens[0], SCREENWIDTH * SCREENHEIGHT); }
 
 void I_SetPalette(byte *palette) {
-    int i;
     SDL_Color colors[256];
-
-    for (i = 0; i < 256; ++i) {
+    for (int i = 0; i < 256; ++i) {
         colors[i].r = gammatable[usegamma][*palette++];
         colors[i].g = gammatable[usegamma][*palette++];
         colors[i].b = gammatable[usegamma][*palette++];
@@ -352,15 +350,12 @@ void I_SetPalette(byte *palette) {
 }
 
 void I_InitGraphics(void) {
-    static int firsttime = 1;
-    uint16_t video_w, video_h, w, h;
-    uint32_t video_flags;
-
-    if (!firsttime)
+    static boolean inited = false;
+    if (inited)
         return;
-    firsttime = 0;
+    inited = true;
 
-    video_flags = (SDL_SWSURFACE | SDL_HWPALETTE);
+    uint32_t video_flags = (SDL_SWSURFACE | SDL_HWPALETTE);
     if (!!M_CheckParm("-fullscreen"))
         video_flags |= SDL_FULLSCREEN;
 
@@ -371,43 +366,18 @@ void I_InitGraphics(void) {
         multiply = 3;
 
     // check if the user wants to grab the mouse (quite unnice)
-    grabMouse = !!M_CheckParm("-grabmouse");
+    grabMouse = M_CheckParm("-grabmouse");
 
-    video_w = w = SCREENWIDTH * multiply;
-    video_h = h = SCREENHEIGHT * multiply;
-
-    /* We need to allocate a software surface because the DOOM! code expects
-       the screen surface to be valid all of the time.  Properly done, the
-       rendering code would allocate the video surface in video memory and
-       then call SDL_LockSurface()/SDL_UnlockSurface() around frame rendering.
-       Eventually SDL will support flipping, which would be really nice in
-       a complete-frame rendering application like this.
-    */
-    switch (video_w / w) {
-        case 3:
-            multiply *= 3;
-            break;
-        case 2:
-            multiply *= 2;
-            break;
-        case 1:
-            multiply *= 1;
-            break;
-        default:;
-    }
-    if (multiply > 3) {
-        I_Error("Smallest available mode (%dx%d) is too large!", video_w, video_h);
-    }
+    uint16_t video_w = SCREENWIDTH * multiply;
+    uint16_t video_h = SCREENHEIGHT * multiply;
     screen = SDL_SetVideoMode(video_w, video_h, 8, video_flags);
     if (screen == NULL) {
         I_Error("Could not set %dx%d video mode: %s", video_w, video_h, SDL_GetError());
     }
     SDL_ShowCursor(0);
-    SDL_WM_SetCaption("SDL DOOM! v1.10", "doom");
+    SDL_WM_SetCaption("DOOM", "doom");
 
     /* Set up the screen displays */
-    w = SCREENWIDTH * multiply;
-    h = SCREENHEIGHT * multiply;
     if (multiply == 1 && !SDL_MUSTLOCK(screen)) {
         screens[0] = (unsigned char *) screen->pixels;
     } else {
