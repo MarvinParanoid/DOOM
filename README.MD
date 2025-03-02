@@ -10,7 +10,8 @@ Just another vanilla fork of Doom to run it on modern systems.
 - fix 64bit related bugs (can be reproduced with sanitizer)
 - music
 - move to SDL2
-- port on Nintendo Switch
+- port on Windows
+- port on Nintendo Switch and DS
 
 ### Building
 
@@ -19,8 +20,10 @@ Requirements:
 - SDL library
 
 ```
-cmake -DCMAKE_BUILD_TYPE=Debug -B /home/rofl/DOOM/cmake-build-debug
-cmake --build /home/rofl/DOOM/cmake-build-debug --target doom -j 8
+cd DOOM 
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Debug ..
+cmake --build . -j 8
 ```
 
 ### How to run
