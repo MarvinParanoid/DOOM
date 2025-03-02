@@ -28,8 +28,7 @@
 #define BGCOLOR 7
 #define FGCOLOR 8
 
-
-#ifdef LINUX
+#ifdef __linux__
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>

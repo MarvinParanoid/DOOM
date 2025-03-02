@@ -187,14 +187,7 @@ extern int showMessages;
 // machine-independent sound params
 extern int numChannels;
 
-
-// UNIX hack, to be removed.
-#ifdef SNDSERV
-extern char *sndserver_filename;
-extern int mb_used;
-#endif
-
-#ifdef LINUX
+#ifdef __linux__
 char *mousetype;
 char *mousedev;
 #endif
@@ -215,7 +208,7 @@ default_t defaults[] = {{"mouse_sensitivity", &mouseSensitivity, 5, false},
                         {"show_messages", &showMessages, 1, false},
 
 
-#ifdef LINUX
+#ifdef __linux__
                         {"key_right", &key_right, KEY_RIGHTARROW, false},
                         {"key_left", &key_left, KEY_LEFTARROW, false},
                         {"key_up", &key_up, KEY_UPARROW, false},

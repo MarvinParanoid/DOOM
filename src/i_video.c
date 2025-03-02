@@ -21,8 +21,6 @@
 //
 //-----------------------------------------------------------------------------
 
-#ifdef SDL
-
 #include <stdlib.h>
 
 #include "SDL/SDL.h"
@@ -386,5 +384,3 @@ void I_InitGraphics(void) {
             I_Error("Couldn't allocate screen memory");
     }
 }
-
-#endif

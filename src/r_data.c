@@ -38,7 +38,7 @@
 #include "doomstat.h"
 #include "r_sky.h"
 
-#ifdef LINUX
+#ifdef __linux__
 #include <alloca.h>
 #endif
 
