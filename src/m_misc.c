@@ -202,58 +202,58 @@ typedef struct {
     boolean isstring;
 } default_t;
 
-default_t defaults[] = {{"mouse_sensitivity", &mouseSensitivity, 5, false},
-                        {"sfx_volume", &snd_SfxVolume, 8, false},
-                        {"music_volume", &snd_MusicVolume, 8, false},
-                        {"show_messages", &showMessages, 1, false},
+default_t defaults[] = {{"mouse_sensitivity", (intptr_t *) &mouseSensitivity, 5, false},
+                        {"sfx_volume", (intptr_t *) &snd_SfxVolume, 8, false},
+                        {"music_volume", (intptr_t *) &snd_MusicVolume, 8, false},
+                        {"show_messages", (intptr_t *) &showMessages, 1, false},
 
 
 #ifdef __linux__
-                        {"key_right", &key_right, KEY_RIGHTARROW, false},
-                        {"key_left", &key_left, KEY_LEFTARROW, false},
-                        {"key_up", &key_up, KEY_UPARROW, false},
-                        {"key_down", &key_down, KEY_DOWNARROW, false},
-                        {"key_strafeleft", &key_strafeleft, ',', false},
-                        {"key_straferight", &key_straferight, '.', false},
+                        {"key_right", (intptr_t *) &key_right, KEY_RIGHTARROW, false},
+                        {"key_left", (intptr_t *) &key_left, KEY_LEFTARROW, false},
+                        {"key_up", (intptr_t *) &key_up, KEY_UPARROW, false},
+                        {"key_down", (intptr_t *) &key_down, KEY_DOWNARROW, false},
+                        {"key_strafeleft", (intptr_t *) &key_strafeleft, ',', false},
+                        {"key_straferight", (intptr_t *) &key_straferight, '.', false},
 
-                        {"key_fire", &key_fire, KEY_RCTRL, false},
-                        {"key_use", &key_use, ' ', false},
-                        {"key_strafe", &key_strafe, KEY_RALT, false},
-                        {"key_speed", &key_speed, KEY_RSHIFT, false},
+                        {"key_fire", (intptr_t *) &key_fire, KEY_RCTRL, false},
+                        {"key_use", (intptr_t *) &key_use, ' ', false},
+                        {"key_strafe", (intptr_t *) &key_strafe, KEY_RALT, false},
+                        {"key_speed", (intptr_t *) &key_speed, KEY_RSHIFT, false},
 
-                        {"mousedev", &mousedev, (intptr_t) "/dev/ttyS0", true},
-                        {"mousetype", &mousetype, (intptr_t) "microsoft", true},
+                        {"mousedev", (intptr_t *) &mousedev, (intptr_t) "/dev/ttyS0", true},
+                        {"mousetype", (intptr_t *) &mousetype, (intptr_t) "microsoft", true},
 #endif
 
-                        {"use_mouse", &usemouse, 1, false},
-                        {"mouseb_fire", &mousebfire, 0, false},
-                        {"mouseb_strafe", &mousebstrafe, 1, false},
-                        {"mouseb_forward", &mousebforward, 2, false},
+                        {"use_mouse", (intptr_t *) &usemouse, 1, false},
+                        {"mouseb_fire", (intptr_t *) &mousebfire, 0, false},
+                        {"mouseb_strafe", (intptr_t *) &mousebstrafe, 1, false},
+                        {"mouseb_forward", (intptr_t *) &mousebforward, 2, false},
 
-                        {"use_joystick", &usejoystick, 0, false},
-                        {"joyb_fire", &joybfire, 0, false},
-                        {"joyb_strafe", &joybstrafe, 1, false},
-                        {"joyb_use", &joybuse, 3, false},
-                        {"joyb_speed", &joybspeed, 2, false},
+                        {"use_joystick", (intptr_t *) &usejoystick, 0, false},
+                        {"joyb_fire", (intptr_t *) &joybfire, 0, false},
+                        {"joyb_strafe", (intptr_t *) &joybstrafe, 1, false},
+                        {"joyb_use", (intptr_t *) &joybuse, 3, false},
+                        {"joyb_speed", (intptr_t *) &joybspeed, 2, false},
 
-                        {"screenblocks", &screenblocks, 9, false},
-                        {"detaillevel", &detailLevel, 0, false},
+                        {"screenblocks", (intptr_t *) &screenblocks, 9, false},
+                        {"detaillevel", (intptr_t *) &detailLevel, 0, false},
 
-                        {"snd_channels", &numChannels, 3, false},
+                        {"snd_channels", (intptr_t *) &numChannels, 3, false},
 
 
-                        {"usegamma", &usegamma, 0, false},
+                        {"usegamma", (intptr_t *) &usegamma, 0, false},
 
-                        {"chatmacro0", &chat_macros[0], (intptr_t) HUSTR_CHATMACRO0, true},
-                        {"chatmacro1", &chat_macros[1], (intptr_t) HUSTR_CHATMACRO1, true},
-                        {"chatmacro2", &chat_macros[2], (intptr_t) HUSTR_CHATMACRO2, true},
-                        {"chatmacro3", &chat_macros[3], (intptr_t) HUSTR_CHATMACRO3, true},
-                        {"chatmacro4", &chat_macros[4], (intptr_t) HUSTR_CHATMACRO4, true},
-                        {"chatmacro5", &chat_macros[5], (intptr_t) HUSTR_CHATMACRO5, true},
-                        {"chatmacro6", &chat_macros[6], (intptr_t) HUSTR_CHATMACRO6, true},
-                        {"chatmacro7", &chat_macros[7], (intptr_t) HUSTR_CHATMACRO7, true},
-                        {"chatmacro8", &chat_macros[8], (intptr_t) HUSTR_CHATMACRO8, true},
-                        {"chatmacro9", &chat_macros[9], (intptr_t) HUSTR_CHATMACRO9, true}
+                        {"chatmacro0", (intptr_t *) &chat_macros[0], (intptr_t) HUSTR_CHATMACRO0, true},
+                        {"chatmacro1", (intptr_t *) &chat_macros[1], (intptr_t) HUSTR_CHATMACRO1, true},
+                        {"chatmacro2", (intptr_t *) &chat_macros[2], (intptr_t) HUSTR_CHATMACRO2, true},
+                        {"chatmacro3", (intptr_t *) &chat_macros[3], (intptr_t) HUSTR_CHATMACRO3, true},
+                        {"chatmacro4", (intptr_t *) &chat_macros[4], (intptr_t) HUSTR_CHATMACRO4, true},
+                        {"chatmacro5", (intptr_t *) &chat_macros[5], (intptr_t) HUSTR_CHATMACRO5, true},
+                        {"chatmacro6", (intptr_t *) &chat_macros[6], (intptr_t) HUSTR_CHATMACRO6, true},
+                        {"chatmacro7", (intptr_t *) &chat_macros[7], (intptr_t) HUSTR_CHATMACRO7, true},
+                        {"chatmacro8", (intptr_t *) &chat_macros[8], (intptr_t) HUSTR_CHATMACRO8, true},
+                        {"chatmacro9", (intptr_t *) &chat_macros[9], (intptr_t) HUSTR_CHATMACRO9, true}
 
 };
 
